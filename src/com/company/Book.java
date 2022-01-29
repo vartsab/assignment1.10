@@ -1,8 +1,10 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Book {
-    private String bookName;
-    private Author author;
+    private final String bookName;
+    private final Author author;
     private Integer publicationYear;
 
     public Book (String bookName, Author author, int publicationYear) {
@@ -11,11 +13,11 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    public final String getBookName () {
+    public String getBookName () {
         return this.bookName;
     }
 
-    public final Author getAuthor () {
+    public Author getAuthor () {
         return this.author;
     }
 
@@ -33,4 +35,25 @@ public class Book {
                 + " published on " + this.publicationYear + ".";
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookName='" + bookName + '\'' +
+                ", author=" + author +
+                ", publicationYear=" + publicationYear +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return bookName.equals(book.bookName) && author.equals(book.author) && publicationYear.equals(book.publicationYear);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookName, author, publicationYear);
+    }
 }
