@@ -16,6 +16,11 @@ public class Main {
         fellowship.setPublicationYear(1955);
         System.out.println("fellowship.getFullBookDescription() = " + fellowship.getFullBookDescription());
 
+        System.out.println(fellowship.toString());
+        System.out.println(heller);
+
+        System.out.println(tolkien.hashCode());
+
     }
 
 }
